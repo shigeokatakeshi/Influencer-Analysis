@@ -1,3 +1,4 @@
+import os
 import urllib.request
 import json
 from dotenv import load_dotenv
@@ -6,9 +7,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 name = input("チャンネル名を入力してください >")
-key = "API_KEY"  # たけしさんが取得したAPIKEYをここに入れてください。（.envに書いて参照してください。）
+key = os.environ["API_KEY"]  # たけしさんが取得したAPIKEYをここに入れてください。（.envに書いて参照してください。）
 data = urllib.request.urlopen(
-    f"https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername={key}"
+    "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername="
     + name
     + "&key="
     + key

@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 name = input("チャンネル名を入力してください >")
-key = os.environ["API_KEY"]  # たけしさんが取得したAPIKEYをここに入れてください。（.envに書いて参照してください。）
+key = os.environ["API_KEY"]  # .env参照
 data = urllib.request.urlopen(
     "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername="
     + name

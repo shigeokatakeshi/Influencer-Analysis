@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, render_template
+from config import Customer
 
 app = Flask(__name__)
 
@@ -8,5 +9,13 @@ app = Flask(__name__)
     index.html というテンプレートをレンダリングする
 """
 
-if __name__ == '__main__':
+
+@app.route("/index")
+def index():
+    # customers変数にCustomerモデルのデータすべてを代入
+    customers = Customer.select()
+    return render_template("index.html", customers=customers)
+
+
+if __name__ == "__main__":
     app.run(port=5000, debug=True)

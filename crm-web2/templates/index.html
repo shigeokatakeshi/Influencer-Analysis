@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>iunful-Web</title>
+</head>
+<body>
+    <h1>顧客一覧</h1>
+    {% for customer in customers %}
+        <li>{{ customer.name }}さん {{ customer.age }}歳</li>
+    {% endfor %}
+</body>
+</html>

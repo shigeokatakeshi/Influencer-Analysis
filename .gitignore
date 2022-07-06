@@ -1,3 +1,5 @@
 __pycache__
 .venv
 .env
+crm_web_dev.sqlite
+*.sqlite

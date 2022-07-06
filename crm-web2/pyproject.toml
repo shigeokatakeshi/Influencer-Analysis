@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "crm-web"
+name = "inful-web"
 version = "0.1.0"
 description = ""
 authors = ["shigeokatakeshi <takeshi0713@gmail.com>"]

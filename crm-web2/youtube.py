@@ -1,18 +1,15 @@
+from apiclient.discovery import build
 import os
-import urllib.request
-import json
 from dotenv import load_dotenv
 
-# env読み込み
 load_dotenv()
 
-name = input("チャンネル名を入力してください >")
-key = os.environ["API_KEY"]  # .env参照
-data = urllib.request.urlopen(
-    "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername="
-    + name
-    + "&key="
-    + key
-).read()
-subs = json.loads(data)["items"][0]["statistics"]["subscriberCount"]
-print(subs)
+CHANNEL_ID = input("チャネルIDを入力してください >")
+API_KEY = os.environ["API_KEY"]  # ここたけしさんのAPI KEYに書き換えてください。
+YOUTUBE_API_SERVICE_NAME = "youtube"
+YOUTUBE_API_VERSION = "v3"
+youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=API_KEY)
+response = youtube.channels().list(part="snippet,statistics", id=CHANNEL_ID).execute()
+
+for item in response.get("items", []):
+    print(item["statistics"]["subscriberCount"])

@@ -18,8 +18,8 @@ def add_customer():
     # フォーム入力されたnameとageを値に受け取る
     name = request.form["name"]
     age = request.form["age"]
-    twitter = request.form["twitter_id"]
-    
+    t_id = request.form["twitter_id"]
+
     # 分割代入でも可
     # [name, age] = request.form
 

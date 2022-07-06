@@ -18,7 +18,7 @@ api = tweepy.API(auth)
 
 
 def main():
-    screen_name = input()
+    screen_name = input("twitterIDを入れて下さい")
     user = api.get_user(screen_name=screen_name)
     user_info = [
         # user.id_str,

@@ -1,3 +1,4 @@
+from googleapiclient.discovery import build
 import requests
 import time
 
@@ -11,9 +12,8 @@ def main():
     response = requests.get(
         "https://www.googleapis.com/youtube/v3/channels?part=statistics&id={id}&key=AIzaSyBDCx3PIGQQnXlJ_qSTtjAs6omJ1svWXVk"
     )
-
-    print(response)
-
+    # you_tube_data = response.json()
+    print(response.json())
     time.sleep(1)  # ここで1秒止まる
 
     # dic = response.json()

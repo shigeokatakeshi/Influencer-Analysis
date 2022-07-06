@@ -1,15 +1,11 @@
 [tool.poetry]
-name = "influencer_analysis"
+name = "crm-web"
 version = "0.1.0"
 description = ""
 authors = ["shigeokatakeshi <takeshi0713@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-python-dotenv = "^0.20.0"
-tweepy = "^4.10.0"
-requests = "^2.28.1"
-Flask = "^2.1.2"
 
 [tool.poetry.dev-dependencies]
 

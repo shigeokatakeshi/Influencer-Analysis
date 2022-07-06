@@ -24,6 +24,9 @@ class Customer(Model):
     id = IntegerField(primary_key=True)
     name = CharField()
     age = IntegerField()
+    twitter_id = CharField()
+    # youtube_id = CharField()
+    # google_sar = CharField()
 
     class Meta:
         database = db

@@ -2,12 +2,28 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>iunful-Web</title>
+    <title>inful-Web</title>
 </head>
 <body>
     <h1>顧客一覧</h1>
     {% for customer in customers %}
-        <li>{{ customer.name }}さん {{ customer.age }}歳</li>
+        <li>
+            {{ customer.name }}さん {{ customer.age }}歳 <br>
+        </li>
     {% endfor %}
+
+    <h1>inful測定</h1>
+
+    <!-- フォームの作成 -->
+    <form action="/add" method="post">
+        Twitter ID を入力して下さい<br>
+        <input type="text" name="twitter_id" required><br>
+        You tube IDを入力して下さい<br>
+        <input type="text" name="name" required><br>
+        google 検索する名前を入力して下さい<br>
+        <input type="text" name="name" required><br>
+        Age: <input type="number" name="age" required><br>
+        <input type="submit" value="登録">
+    </form>
 </body>
 </html>

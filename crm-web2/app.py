@@ -33,7 +33,7 @@ youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=API_
 app = Flask(__name__)
 
 # トップページ
-@app.route("/index")
+@app.route("/")
 def index():
     customers = Customer.select()
     return render_template("index.html", customers=customers)
@@ -42,11 +42,27 @@ def index():
 # 結果の表示ページ
 @app.route("/result")
 def result():
-
     customer = Customer.select().order_by(Customer.id.desc()).get()
     # customer = Customer.select().order_by(Customer.id.desc()).get()
-
-    return render_template("result.html", customer=customer)
+    if customer.bip > 20000000:
+        picture = "ss_god"
+    if customer.bip > 2000000:
+        picture = "s_lion"
+    if customer.bip > 1500000:
+        picture = "a_monky"
+    if customer.bip > 1000000:
+        picture = "b_seep"
+    if customer.bip > 750000:
+        picture = "c_dog"
+    if customer.bip > 500000:
+        picture = "d_chicken"
+    if customer.bip > 100000:
+        picture = "e_chick"
+    if customer.bip > 10000:
+        picture = "f_frog"
+    if customer.bip > 0:
+        picture = "g_insect"
+    return render_template("result.html", customer=customer, picture=picture)
 
 
 # ランキングの表示ページ

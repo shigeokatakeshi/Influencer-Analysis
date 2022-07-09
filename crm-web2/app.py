@@ -44,25 +44,27 @@ def index():
 def result():
     customer = Customer.select().order_by(Customer.id.desc()).get()
     # customer = Customer.select().order_by(Customer.id.desc()).get()
-    if customer.bip > 20000000:
+    if customer.bip >= 20000000:
         picture = "ss_god"
-    if customer.bip > 2000000:
+    elif customer.bip >= 2000000:
         picture = "s_lion"
-    if customer.bip > 1500000:
+    elif customer.bip >= 1500000:
         picture = "a_monky"
-    if customer.bip > 1000000:
+    elif customer.bip >= 1000000:
         picture = "b_seep"
-    if customer.bip > 750000:
+    elif customer.bip >= 750000:
         picture = "c_dog"
-    if customer.bip > 500000:
+    elif customer.bip >= 500000:
         picture = "d_chicken"
-    if customer.bip > 100000:
+    elif customer.bip >= 100000:
         picture = "e_chick"
-    if customer.bip > 10000:
+    elif customer.bip >= 10000:
         picture = "f_frog"
-    if customer.bip > 0:
+    elif customer.bip >= 0:
         picture = "g_insect"
-    return render_template("result.html", customer=customer, picture=picture)
+    
+    customer_bip = '{:,}'.format(customer.bip)
+    return render_template("result.html", customer=customer, customer_bip=customer_bip, picture=picture)
 
 
 # ランキングの表示ページ

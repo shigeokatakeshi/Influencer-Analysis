@@ -62,9 +62,11 @@ def result():
         picture = "f_frog"
     elif customer.bip >= 0:
         picture = "g_insect"
-    
-    customer_bip = '{:,}'.format(customer.bip)
-    return render_template("result.html", customer=customer, customer_bip=customer_bip, picture=picture)
+
+    customer_bip = "{:,}".format(customer.bip)
+    return render_template(
+        "result.html", customer=customer, customer_bip=customer_bip, picture=picture
+    )
 
 
 # ランキングの表示ページ
@@ -82,16 +84,27 @@ def add_customer():
     name = request.form["name"]
 
     # Twitter情報
-    t_id = request.form["twitter_id"]
-    user = api.get_user(screen_name=t_id)
-    subscribers = user.followers_count
+    if request.form["twitter_id"] != "":
+        t_id = request.form["twitter_id"]
+        user = api.get_user(screen_name=t_id)
+        subscribers = user.followers_count
+    else:
+        t_id = ""
+        user = ""
+        subscribers = int(0)
 
     # Youtube情報
-    y_channel_id = request.form["y_channel_id"]
-    response = (
-        youtube.channels().list(part="snippet,statistics", id=y_channel_id).execute()
-    )
-    subscribers2 = response["items"][0]["statistics"]["subscriberCount"]
+    if request.form["y_channel_id"] != "":
+        y_channel_id = request.form["y_channel_id"]
+        response = (
+            youtube.channels()
+            .list(part="snippet,statistics", id=y_channel_id)
+            .execute()
+        )
+        subscribers2 = response["items"][0]["statistics"]["subscriberCount"]
+    else:
+        y_channel_id = ""
+        subscribers2 = int(0)
 
     bip = int(subscribers2) + int(subscribers)
 
@@ -111,4 +124,4 @@ def add_customer():
 
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    app.run(port=5000, debug=True, host="0.0.0.0")

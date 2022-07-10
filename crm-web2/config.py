@@ -22,12 +22,12 @@ class Customer(Model):
     """Customer Model"""
 
     id = IntegerField(primary_key=True)
-    name = CharField()
-    twitter_id = IntegerField()
-    tw_subscribers = IntegerField()
-    youtube_id = IntegerField()
-    you_subscribers = IntegerField()
-    bip = IntegerField()
+    name = CharField(null=True)
+    twitter_id = IntegerField(null=True)
+    tw_subscribers = IntegerField(null=True)
+    youtube_id = IntegerField(null=True)
+    you_subscribers = IntegerField(null=True)
+    bip = IntegerField(null=True)
     # google_sar = CharField()
 
     class Meta:

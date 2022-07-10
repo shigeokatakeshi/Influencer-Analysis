@@ -1,30 +1,11 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ranking</title>
-</head>
-<body>
-        <h1>測定結果ランキング</h1>
-    {% for customer in customers %}
-        <li>
-            {{ customer.name }}さん {{ customer.bip }} B.I.Point <br>
-        </li>
-    {% endfor %}
-    
-</body>
-</html>
-
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Freelancer - influence力測定 Theme</title>
+        <title>Freelancer - influence測定 Theme</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -39,7 +20,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">influence力測定</a>
+                <a class="navbar-brand" href="#page-top">influence測定</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -53,18 +34,22 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
+        <header class="masthead bg-primary text-white text-left">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
                 <h1 class="page-section-heading text-center text-uppercase text-secondary">測定結果ランキング</h1>
                 <img class="masthead-avatar mb-5" src="/../static/assets/img/image.png" alt="..." />
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">{    {% for customer in customers %}
-                                   <li>
-            {{ customer.name }}さん {{ customer.bip }} B.I.Point <br>
-        </li>
-    {% endfor %}
-                </p>
+                <div class="masthead-subheading font-weight-light mb-0">
+                    <ul>
+                        {% for customer in customers %}
+                        <li>                   
+                            {{ customer.name }}さん<br>
+                             {{   customer.bip }} B.I.Point
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>

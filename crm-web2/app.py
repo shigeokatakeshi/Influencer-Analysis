@@ -49,7 +49,7 @@ def result():
     elif customer.bip >= 2000000:
         picture = "s_lion"
     elif customer.bip >= 1500000:
-        picture = "a_monky"
+        picture = "a_monkey"
     elif customer.bip >= 1000000:
         picture = "b_sheep"
     elif customer.bip >= 750000:
